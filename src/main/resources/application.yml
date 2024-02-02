@@ -1,7 +1,7 @@
 server:
   port: 8081
-  error:
-    include-message: always
+error:
+include-message: always
 #Configuracion de spring
 spring:
   #Configuracion de migracion
@@ -16,7 +16,7 @@ spring:
     schemas: public
 
   datasource:
-    url: jdbc:postgresql://rajje.db.elephantsql.com:5432/nowznfyd?socketTimeout=3
-    username: nowznfyd
-    password: ktaCqM8sgYZ_5w-gG24yzYRdTYhaEgqI
+    url: jdbc:postgresql://jelani.db.elephantsql.com:5432/otwvohcw?socketTimeout=3
+    username: otwvohcw
+    password: tauzmtsSqxYuoHQecKTT_Ot0J6SL07H2
     driverClassName: org.postgresql.Driver
