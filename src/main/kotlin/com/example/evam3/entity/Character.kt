@@ -3,16 +3,16 @@ package com.example.evam3.entity
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "scene")
-class Scene {
+@Table(name = "character")
+class Character {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     val id: Long? = null
     var description: String? = null
-    var budget: Double? = null
-    var minutes: Int? = null
+    var cost: Double? = null
+    var hability: String? = null
 
     @ManyToOne
-    @JoinColumn(name = "film_id", nullable = false)
-    var film: Film? = null
+    @JoinColumn(name = "scene_id", nullable = false)
+    var scene: Scene? = null
 }

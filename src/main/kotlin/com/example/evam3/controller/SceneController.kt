@@ -1,31 +1,25 @@
 package com.example.evam3.controller
 
-import com.example.evam3.entity.Film
 import com.example.evam3.entity.Scene
 import com.example.evam3.service.SceneService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/scenes")
+@RequestMapping("/scene")
 class SceneController {
-
     @Autowired
     lateinit var sceneService: SceneService
 
-    @GetMapping("/{id}")
-    fun findAllByFilm(@PathVariable id: Int): List<Scene> {
-        var film = Film(id = id)
-        return sceneService.findAllByFilm(film)
+    @GetMapping("/film/{filmId}")
+    fun listByFilmId(@PathVariable filmId: Long): ResponseEntity<*> {
+        return ResponseEntity(sceneService.listByFilmId(filmId), HttpStatus.OK)
     }
 
     @PostMapping
-    fun save(@RequestBody scene: Scene): Scene {
-        return sceneService.save(scene)
+    fun save(@RequestBody scene: Scene): ResponseEntity<*> {
+        return ResponseEntity<Scene>(sceneService.save(scene), HttpStatus.CREATED)
     }
 }
